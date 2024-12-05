@@ -1,0 +1,24 @@
+package co.edu.controller;
+import java.awt.PageAttributes.MediaType;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowire;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import co.edu.ue.model.Dato;
+import co.edu.ue.service.DatoServiceI;
+
+public class DatoController {
+	@Autowired
+	DatoServiceI service;
+	
+	@GetMapping(value="datos", produces= MediaType.Application_json_value)
+	public List<Dato> geDatos(){
+		return service.getAllDato();
+	}
+
+}

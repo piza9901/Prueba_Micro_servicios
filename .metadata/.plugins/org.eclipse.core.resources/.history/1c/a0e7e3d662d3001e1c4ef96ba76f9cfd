@@ -1,0 +1,22 @@
+package com.example.demo;
+
+import java.security.PublicKey;
+
+import javax.print.attribute.standard.MediaTray;
+
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+@RestControllerAdvice
+
+public class controler {
+	//Metodos para peticiones GET POST PUT DELETE 
+	@GetMapping(value="saludar", produces = MediaType.TEXT_PLAIN_VALUE)
+	public String Saludo() {
+	
+		return "hola mundo";
+	}	
+	}
+
+}

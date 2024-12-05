@@ -1,0 +1,14 @@
+package com.dao;
+
+import java.util.List;
+
+import com.model.Alumno;
+
+public interface AlumnoDAOI {
+	Alumno addAlumno(Alumno alumno);
+	Alumno updateAlumno(Alumno alumno);
+	void delecIdAlumno(int id);
+	Alumno searchAlumno(int id);
+	List<Alumno> getAllAlumno();
+	Alumno searchAlumno(String alumno);
+}

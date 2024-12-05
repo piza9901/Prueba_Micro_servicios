@@ -1,0 +1,102 @@
+package com.model;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+import java.util.List;
+
+
+/**
+ * The persistent class for the alumnos database table.
+ * 
+ */
+@Entity
+@Table(name="alumnos")
+@NamedQuery(name="Alumno.findAll", query="SELECT a FROM Alumno a")
+public class Alumno implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "AlumnoID")
+	private int alumnoID;
+	
+	@Column(name = "Apellido")
+	private String apellido;
+
+	@Column(name = "Nombre")
+	private int codigo;
+
+	@Column(name = "Codigo")
+	private String nombre;
+
+	//bi-directional many-to-one association to Nota
+	@OneToMany(mappedBy="alumno")
+	private List<Nota> notas;
+
+	public Alumno() {
+	}
+
+	public int getAlumnoID() {
+		return this.alumnoID;
+	}
+
+	public void setAlumnoID(int alumnoID) {
+		this.alumnoID = alumnoID;
+	}
+
+	public String getApellido() {
+		return this.apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public int getCodigo() {
+		return this.codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public List<Nota> getNotas() {
+		return this.notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+
+	public Nota addNota(Nota nota) {
+		getNotas().add(nota);
+		nota.setAlumno(this);
+
+		return nota;
+	}
+
+	public Nota removeNota(Nota nota) {
+		getNotas().remove(nota);
+		nota.setAlumno(null);
+
+		return nota;
+	}
+
+}

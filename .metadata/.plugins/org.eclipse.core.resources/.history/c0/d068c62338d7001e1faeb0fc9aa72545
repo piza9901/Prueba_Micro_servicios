@@ -1,0 +1,41 @@
+package co.edu.ue.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import co.edu.dao.AlumnoDAOI;
+import co.edu.ue.model.Alumno;
+
+public class AlumnoService implements AlumnoServiceI {
+
+	@Autowired
+	AlumnoDAOI dao;
+	
+	@Override
+	public boolean addAlumno(Alumno alumno) {
+		if (dao.searchAlumno(null)) {
+			
+		}
+		return false;
+	}
+
+	@Override
+	public List<Alumno> getAllAlumno() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void uppdateAlumno(Alumno alumno) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean delecIdAlumno(int idAlumno) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

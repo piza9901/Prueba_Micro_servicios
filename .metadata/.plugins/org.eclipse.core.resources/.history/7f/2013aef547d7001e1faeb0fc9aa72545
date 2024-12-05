@@ -1,0 +1,12 @@
+package com.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import model.Alumno;
+
+
+
+public interface AlumnoJPA extends JpaRepository<Alumno, Integer> {
+
+	Alumno fidByDatCodigo(int codigo);
+}

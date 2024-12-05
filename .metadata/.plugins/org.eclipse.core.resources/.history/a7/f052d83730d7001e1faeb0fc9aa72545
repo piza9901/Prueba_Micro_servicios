@@ -1,0 +1,10 @@
+package co.edu.ue.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import co.edu.ue.model.Alumno;
+
+public interface AlumnoJPA extends JpaRepository<Alumno, Integer> {
+	
+
+}

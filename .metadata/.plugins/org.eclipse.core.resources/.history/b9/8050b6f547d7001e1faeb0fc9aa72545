@@ -1,0 +1,30 @@
+package service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.dao.AlumnoDAOI;
+
+import model.Alumno;
+
+public class AlumnoService implements AlumnoServiceI {
+
+	@Autowired
+	AlumnoDAOI dao;
+	
+	@Override
+	public boolean addAlumno(Alumno alumno) {
+		if (dao.searchAlumno(alumno.getCodigo())==null) {
+			dao.addAlumno(alumno);
+		}
+		return true;
+	}
+
+	@Override
+	public List<Alumno> getAllAlumno() {
+		// TODO Auto-generated method stub
+		return dao.getAllAlumno();
+	}
+
+}

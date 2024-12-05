@@ -1,0 +1,13 @@
+package service;
+
+import java.util.List;
+
+import model.Alumno;
+
+public interface AlumnoServiceI {
+
+	boolean addAlumno(Alumno alumno);
+	List<Alumno> getAllAlumno();
+	void uppdateAlumno(Alumno alumno);
+	boolean delecIdAlumno(int idAlumno);
+}

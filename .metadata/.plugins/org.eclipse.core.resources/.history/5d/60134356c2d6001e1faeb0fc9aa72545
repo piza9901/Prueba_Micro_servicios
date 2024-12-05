@@ -1,0 +1,40 @@
+package co.edu.ue.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import co.edu.ue.model.Dato;
+
+public class DatoService implements DatoServiceI {
+	
+	@Autowired
+	DatoServiceI dao;
+
+	@Override
+	public Boolean addDato(Dato dato) {
+	if (dao.searchCorreo (null)) {
+		
+	}
+		return null;
+	}
+
+	@Override
+	public List<Dato> getAllDato() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void updateDato(Dato dato) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean deletedatoID(int idDato) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

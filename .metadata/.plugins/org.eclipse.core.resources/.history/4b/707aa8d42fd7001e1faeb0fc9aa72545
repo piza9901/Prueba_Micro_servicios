@@ -1,0 +1,8 @@
+package co.edu.ue.dao;
+
+import co.edu.ue.model.;
+
+public interface AlumnoJPA {
+	Alumno AddAlumno(Alumno alumno)
+
+}

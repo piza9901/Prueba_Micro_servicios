@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Notas - Universidad San José de Caldas</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Estilos personalizados -->
+  <style>
+    /* Estilos adicionales personalizados */
+    /* Puedes personalizar según tus necesidades */
+  </style>
+</head>
+<body>
+  <!-- Barra de navegación con el logo de la universidad -->
+  <nav class="navbar navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <!-- Reemplaza 'logo.png' con la ruta a tu imagen del logo -->
+        <img src="logo.png" alt="Logo Universidad San José de Caldas" height="100">
+      </a>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <h2>Gestión de Notas</h2>
+    <!-- Formulario para seleccionar el estudiante y la materia -->
+    <form id="notaForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEstudiante">Estudiante</label>
+          <input type="text" class="form-control" id="inputEstudiante" placeholder="Nombre del estudiante" required>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputMateria">Materia</label>
+          <input type="text" class="form-control" id="inputMateria" placeholder="Nombre de la materia" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputNota">Nota</label>
+          <input type="number" class="form-control" id="inputNota" placeholder="Ingrese la nota" required>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+
+    <!-- Tabla para mostrar las notas -->
+    <div class="mt-4">
+      <h3>Notas de Estudiantes</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Estudiante</th>
+            <th>Materia</th>
+            <th>Nota</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="notasBody">
+          <!-- Aquí se cargarán dinámicamente las notas -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- jQuery y Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Script para manejar el formulario y las notas dinámicamente
+    // Este es solo un ejemplo básico, puedes modificarlo según tus necesidades
+
+    document.getElementById('notaForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evitar que el formulario se envíe por defecto
+
+      // Obtener los valores del formulario
+      var estudiante = document.getElementById('inputEstudiante').value;
+      var materia = document.getElementById('inputMateria').value;
+      var nota = document.getElementById('inputNota').value;
+
+      // Limpiar los campos del formulario
+      document.getElementById('inputEstudiante').value = '';
+      document.getElementById('inputMateria').value = '';
+      document.getElementById('inputNota').value = '';
+
+      // Agregar una nueva fila a la tabla de notas
+      var notasBody = document.getElementById('notasBody');
+      var newRow = notasBody.insertRow();
+      newRow.innerHTML = '<td>' + estudiante + '</td>' +
+                         '<td>' + materia + '</td>' +
+                         '<td>' + nota + '</td>' +
+                         '<td><button class="btn btn-secondary btn-sm">Editar</button></td>';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+package com.model;
+
+import java.io.Serializable;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+import java.util.List;
+
+
+/**
+ * The persistent class for the materias database table.
+ * 
+ */
+@Entity
+@Table(name="materias")
+@NamedQuery(name="Materia.findAll", query="SELECT m FROM Materia m")
+public class Materia implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int materiaID;
+	
+	private String nombreMateria;
+
+	//bi-directional many-to-one association to Nota
+	@OneToMany(mappedBy="materia")
+	private List<Nota> notas;
+
+	public Materia() {
+	}
+
+	public int getMateriaID() {
+		return this.materiaID;
+	}
+
+	public void setMateriaID(int materiaID) {
+		this.materiaID = materiaID;
+	}
+
+	public String getNombreMateria() {
+		return this.nombreMateria;
+	}
+
+	public void setNombreMateria(String nombreMateria) {
+		this.nombreMateria = nombreMateria;
+	}
+
+	public List<Nota> getNotas() {
+		return this.notas;
+	}
+
+	public void setNotas(List<Nota> notas) {
+		this.notas = notas;
+	}
+
+	public Nota addNota(Nota nota) {
+		getNotas().add(nota);
+		nota.setMateria(this);
+
+		return nota;
+	}
+
+	public Nota removeNota(Nota nota) {
+		getNotas().remove(nota);
+		nota.setMateria(null);
+
+		return nota;
+	}
+
+}

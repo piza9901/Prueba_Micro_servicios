@@ -1,0 +1,21 @@
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+
+@SpringBootApplication
+@EntityScan({"co.edu.ue.model"})
+@EnableJpaRepositories(basePackages = {"co.edu.dao"})
+@ComponentScan(basePackages = {"co.edu.ue.service","co.edu.ue.Controller","co.edu.ue.dao"})
+
+
+public class PruebaUniversidadApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(PruebaUniversidadApplication.class, args);
+	}
+
+}

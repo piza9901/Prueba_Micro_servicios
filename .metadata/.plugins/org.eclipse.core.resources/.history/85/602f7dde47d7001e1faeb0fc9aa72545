@@ -1,0 +1,52 @@
+package dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import model.Alumno;
+
+@Repository
+public class AlumnoDAO implements AlumnoDAOI{
+	
+	@Autowired
+	AlumnoJPA alumnoJPA;
+
+	@Override
+	public Alumno addAlumno(Alumno alumno) {
+		// TODO Auto-generated method stub
+		return alumnoJPA.save(alumno);
+	}
+
+	@Override
+	public Alumno updateAlumno(Alumno alumno) {
+		// TODO Auto-generated method stub
+		return alumnoJPA.save(alumno);
+	}
+
+	@Override
+	public void delecIdAlumno(int id) {
+		 alumnoJPA.deleteById(id);
+		
+	}
+
+	@Override
+	public Alumno searchAlumno(int id) {
+		// TODO Auto-generated method stub
+		return alumnoJPA.findById(id).orElse(null);
+	}
+
+	@Override
+	public List<Alumno> getAllAlumno() {
+		// TODO Auto-generated method stub
+		return alumnoJPA.findAll();
+	}
+
+	@Override
+	public Alumno searchAlumno(String alumno) {
+		// TODO Auto-generated method stub
+		return alumnoJPA.fidByDatCodigo(0);
+	}
+
+}
